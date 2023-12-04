@@ -36,5 +36,23 @@ Array.prototype.myMap = function(callback) {
 function callback(elem){
     return(elem + "!") 
 }
-let arr1 = ['a', 'b', 'c']
-console.log(arr1.myMap(callback))
+// let arr1 = ['a', 'b', 'c']
+// console.log(arr1.myMap(callback))
+// =======================================================
+
+    Array.prototype.myReduce = function(callback, initialValue){
+        let arr = this;
+        //  here IV is the accumulator
+        if (initialValue === null){
+            initialValue = this[0];
+            arr = this.slice(1);
+        };
+        for (let i = 0; i < arr.length; i++){
+            arr.myEach(elem){
+                initialValue = callback(initialValue, arr[i]);
+            };
+        };
+        return initialValue;
+    }
+
+    console.log[1, 2, 3].myReduce(function(acc, el){return acc + el;}); // => 6
